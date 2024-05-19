@@ -1,7 +1,7 @@
-#' # SOR iteracija za razpršene matrike
+#' # DN1: SOR iteracija za razpršene matrike
 #' Avtor: Timotej Šalamon
 
-#' V nalogi se okvarjamo z SOR iteracijo na posebnem tipu matrik - razpršene matrike. 
+#' V nalogi se ukvarjamo s SOR iteracijo na posebnem tipu matrik - razpršene matrike. 
 #' Matrika zaradi prostorskih zahtev hrani vrednosti v matrikah `V` in `I`, velikosti n x m. Pri tem velja:
 #' ```
 #' `V(i,j) = A(i, I(i, j))`.
@@ -31,11 +31,11 @@ last = lastIndex(A, 2)
 
 #' ## SOR iteracija
 #' Sedaj lahko izvedemo Successive over-relaxation oz. SOR iteracijo. SOR iteracija se uporablja predvsem za
-#' reševanje sistemov `Ax = b`. Pri tem upošreva tudi relaksacijski vektor ω, ki je po navadi v mejah med
+#' reševanje sistemov `Ax = b`. Pri tem upošteva tudi relaksacijski vektor ω, ki je po navadi v mejah med
 #' 0 in 2. Iteracija deluje po naslednji formuli:
-#' ```
-#' xᵢ⁽ᵏ⁺¹⁾ = (1 - ω) * xᵢ⁽ᵏ⁾ + (ω / Aᵢᵢ) * (bᵢ - ∑(j<i) Aᵢⱼ * xⱼ⁽ᵏ⁺¹⁾ - ∑(j>i) Aᵢⱼ * xⱼ⁽ᵏ⁾)
-#' ```
+#' 
+#' x_i^(k+1) = (1 - omega) * x_i^(k) + omega / A_(i, i) * (b_i - sum_((j<i) A_(ij) * x_j^(k+1)) - sum_(j>i) A_(ij) * x_j^(k))
+#' 
 #' Iteracija se konča ko dosežemo konvergenco po naslednjem kriteriju, kjer za toleranco vzamemo
 #' zelo majhno vrednost (npr. 1e-10):
 #' |Ax(k) − b| ∞ < toleranca
@@ -53,9 +53,9 @@ x, iter = SOR(A, b, x0, omega)
 #' Izvedemo vlaganje grafa na ravnino / prostor s fizikalno metodo. Če so (xi,yi,zi)
 #' koordinate vozlišč grafa v prostoru, potem vsaka koordinata posebej zadošča enačbam
 #' ```
-#' -st(i) x[i] + ∑j∈N(i) x[j] = 0
-#' −st(i) y[i] + ∑j∈N(i) y[j] = 0
-#' −st(i) z[i] + ∑j∈N(i) z[j] = 0
+#' -st(i) x[i] + sum_(j in N(i)) x[j] = 0
+#' -st(i) y[i] + sum_(j in N(i)) y[j] = 0
+#' -st(i) z[i] + sum_(j in N(i)) z[j] = 0
 #' ```
 #' V moji rešitvi sem izvedel vlaganje treh grafov, kjer so grafi podani z vozlišči, robovi
 #' in njihovimi vrednosti. Nato sem uporabim funkcijo ustvariRazsprsenoMatriko, ki iz teh podatkov
@@ -75,7 +75,7 @@ plot, minIteracij, minOmega, rez = optimalnaOmega(A, b, x0, 1)
 minOmega
 #' Minimalno število iteracij
 minIteracij
-#' Rezultat iteracije
+#' Rezultat
 rez
 #' Graf hitrosti konvergence
 display(plot)
@@ -94,7 +94,7 @@ plot, minIteracij, minOmega, rez = optimalnaOmega(B, b, x0, 2)
 minOmega
 #' Minimalno število iteracij
 minIteracij
-#' Rezultat iteracije
+#' Rezultat
 rez
 #' Graf hitrosti konvergence
 display(plot)
@@ -110,7 +110,7 @@ plot, minIteracij, minOmega, rez = optimalnaOmega(C, b, x0, 3)
 minOmega
 #' Minimalno število iteracij
 minIteracij
-#' Rezultat iteracije
+#' Rezultat
 rez
 #' Graf hitrosti konvergence
 display(plot)
