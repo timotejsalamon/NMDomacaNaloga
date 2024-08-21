@@ -1,4 +1,4 @@
-#' # DN1: SOR iteracija za razpršene matrike
+#' # DN2: Porazdelitvena funkcija normalne slučajne spremenljivke in Gauss-Legendrove kvadrature
 #' Avtor: Timotej Šalamon
 
 #' ## Naloge s funkcijami: Porazdelitvena funkcija normalne slučajne spremenljivke
