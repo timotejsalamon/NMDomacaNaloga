@@ -53,7 +53,7 @@ plot(xs, razlike, label="Razlika", xlabel="x",
 #' $$
 #' \int_a^b f(x) = A(f(x_1)) + B(f(x_2)) + R_f
 #' $$
-#' Za primer izračunajmo $\int_1_2 \sin((x))dx$ s pomočjo tega pravila.
+#' Za primer izračunajmo $\int_1^2 \sin((x))dx$ s pomočjo tega pravila.
 f(x) = sin(x)
 a, b = 1.0, 2.0
 gaussLegendre2P(f, a, b)
@@ -73,8 +73,8 @@ gaussLegendre(f, a, b, n)
 #' integrala natančen na 10 decimalk.
 rez, stKorakov = primerGL()
 
-# Dobimo rezultat:
+#' Dobimo rezultat:
 rez
 
-# Dobimo število potrebnih korakov da dosežemo željeno natančnost:
+#' Dobimo število potrebnih korakov da dosežemo željeno natančnost:
 stKorakov
